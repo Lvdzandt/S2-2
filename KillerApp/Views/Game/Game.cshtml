@@ -1,0 +1,44 @@
+﻿@model KillerApp.Models.GameViewModel
+@using KillerApp.Objects
+@{
+    ViewData["Title"] = "Game";
+}
+
+<h2>Game</h2>
+
+<div>
+    <h3>Search by ID</h3>
+    <input type="text" id="prodId" size="5" />
+    <input type="button" value="Search" onclick="find('@Url.Action("GetProduct")');" />
+    <h4 id="searchedProduct" class="modal-dialog"></h4>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Player</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Game)
+        {
+            @foreach (var speedrun in item.Leaderbord.Speedruns)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => speedrun.Player)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => speedrun.Hours)
+            </td>
+        </tr>
+    }
+
+        }
+    </tbody>
+</table>
+
+
+
+

@@ -1,0 +1,30 @@
+﻿@model KillerApp.Models.GameViewModel
+@using KillerApp.Objects
+@{
+    ViewData["Title"] = "Game";
+}
+
+<h2>Game</h2>
+
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Game ID</th>
+                <th>Game Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Game)
+            {
+                <tr>
+                    <td><a href="Game/Game/@item.ID">@Html.DisplayFor(modelItem => item.ID)</a></td>
+                    <td >@Html.DisplayFor(modelItem => item.Name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
