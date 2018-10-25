@@ -21,21 +21,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Game)
+        @*@foreach (var item in Model.Game)
         {
-            @foreach (var speedrun in item.Leaderbord.Speedruns)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => speedrun.Player)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => speedrun.Hours)
-            </td>
-        </tr>
-    }
 
-        }
+                @foreach (var speedrun in item.Leaderbord.Speedruns)
+                {
+                    <tr>
+                        <td>
+                        @Html.DisplayFor(modelItem => speedrun.Player)
+                        </td>
+                        <td>
+                        @Html.DisplayFor(modelItem => speedrun.Hours)
+                        </td>
+                    </tr>
+                }
+        }*@
     </tbody>
 </table>
 

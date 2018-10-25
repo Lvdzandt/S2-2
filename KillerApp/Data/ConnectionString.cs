@@ -14,7 +14,7 @@ namespace KillerApp.Data
 
         public static string CreateConString()
         {
-            return $"SERVER= {Server}; DATABASE= {DataBase}; UID= {UID}; PASSWORD= {Password}; SslMode=none";
+            return $"SERVER= {Server}; DATABASE= {DataBase}; UID= {UID}; PASSWORD= {Password};";
         }
 
     }

@@ -52,7 +52,6 @@ C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\Index.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -66,3 +65,4 @@ C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.Vi
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.dll
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.pdb
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csproj.CopyComplete
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Login\Index.g.cshtml.cs

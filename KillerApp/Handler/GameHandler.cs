@@ -1,4 +1,5 @@
-﻿using KillerApp.Objects;
+﻿using KillerApp.Data.Repository;
+using KillerApp.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace KillerApp.Handler
 {
     public class GameHandler
     {
+        GameRepository gameRepository = new GameRepository();
         public GameHandler()
         {
 
@@ -16,8 +18,14 @@ namespace KillerApp.Handler
         public List<Game> GetAllGames()
         {
             List<Game> Gamelist = new List<Game>();
-            Gamelist.Add(new Game() { ID = 1,Leaderbord = new Leaderbord() { ID = 1, GameID = 1, Speedruns = new List<Speedrun>() { new Speedrun() { Player= "Test", Hours = 2} } }, Name = "test"});
+            //Gamelist.Add(new Game() { ID = 1,Leaderbord = new Leaderbord() { ID = 1, GameID = 1, Speedruns = new List<Speedrun>() { new Speedrun() { Player= "Test", Hours = 2} } }, Name = "test"});
+            Gamelist = gameRepository.GetAllGames();
             return Gamelist;
+        }
+
+        public void AddGame(Game game)
+        {
+            gameRepository.AddGame(game);
         }
 
     }

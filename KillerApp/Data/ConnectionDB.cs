@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Data
 {
-    public class ConnectionDB
+    public static class ConnectionDB
     {
-        public SqlConnection GetConnection()
+        public static SqlConnection GetConnection()
         {
             return new SqlConnection(ConnectionString.CreateConString());
         }

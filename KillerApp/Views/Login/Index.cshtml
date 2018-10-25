@@ -1,0 +1,57 @@
+﻿@model KillerApp.Models.LoginViewModel
+@using KillerApp.Objects
+@{
+    ViewData["Title"] = "Login";
+}
+<div>
+    
+</div>
+
+<div id="login-div">
+    @using (Html.BeginForm("Auterize", "Login",FormMethod.Post))
+    {
+    <table>
+        <tr>
+            <td>
+                <h2>Login</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.user.Username)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.user.Username)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessageFor(Model => Model.user.Username)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(Model => Model.user.Password)
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.user.Password)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessageFor(Model => Model.user.Password)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="name" value="login" />
+            </td>
+        </tr>
+    </table>
+    }
+
+</div>
+
+@functions{
+
+    
+}
