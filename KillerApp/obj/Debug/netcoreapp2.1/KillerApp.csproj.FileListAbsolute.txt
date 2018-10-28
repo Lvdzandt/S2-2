@@ -39,7 +39,6 @@ C:\Users\Luc\Desktop\git\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.dl
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.pdb
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.Views.dll
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.Views.pdb
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csprojAssemblyReference.cache
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csproj.CoreCompileInputs.cache
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.RazorAssemblyInfo.cache
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.RazorAssemblyInfo.cs

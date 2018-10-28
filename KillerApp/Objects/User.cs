@@ -9,6 +9,7 @@ namespace KillerApp.Objects
 {
     public class User
     {
+        public int ID { get; set; }
         [DisplayName("Username :  ")]
         [Required(ErrorMessage = "This field is required")]
         public string Username { get; set; }

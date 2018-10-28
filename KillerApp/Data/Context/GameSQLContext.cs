@@ -10,8 +10,8 @@ namespace KillerApp.Data.Context
 {
     public class GameSQLContext : IGameContext
     {
-        public string query;
-        public SqlCommand command;
+        private string query;
+        private SqlCommand command;
 
         public List<Game> GetAllGames()
         {
@@ -35,6 +35,7 @@ namespace KillerApp.Data.Context
                                 output.Add(new Game() { ID = GameID, Description = Description, Name = Name });
                             }
                         }
+                        Conn.Close();
                     }
                     
                 }
