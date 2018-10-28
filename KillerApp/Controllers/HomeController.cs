@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using KillerApp.Models;
+using Microsoft.AspNetCore.Identity;
+using KillerApp.Objects;
 
 namespace KillerApp.Controllers
 {
@@ -12,11 +14,13 @@ namespace KillerApp.Controllers
     {
         public IActionResult Index()
         {
+            
             return View();
         }
 
         public IActionResult Login()
         {
+            
             ViewData["Message"] = "Your application description page.";
 
             return View();

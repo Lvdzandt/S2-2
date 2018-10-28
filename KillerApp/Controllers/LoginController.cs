@@ -21,20 +21,15 @@ namespace KillerApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Auterize(LoginViewModel model)
+        public async Task<IActionResult> Autherize(LoginViewModel model)
         {
-            string url = "https://localhost:5001/";
-            //foreach (User user in account.GetAllAccounts())
-            //{
-            //    if (user.Username == model.user.Username && user.Password == model.user.Password)
-            //    {
-            //        return Redirect(url);
-            //    }
-            //}
-            //return View();
-            if (model.user.Username == "test")
+            foreach (User user in account.GetAllAccounts())
             {
-                return Redirect(url);
+                if (user.Username == model.user.Username && user.Password == model.user.Password)
+                {
+                    
+                    return RedirectToAction(nameof(HomeController.Contact), "Home");
+                }
             }
             return View();
         }

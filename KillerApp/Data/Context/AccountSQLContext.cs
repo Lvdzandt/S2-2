@@ -21,7 +21,7 @@ namespace KillerApp.Data.Context
                     using (SqlConnection Conn = ConnectionDB.GetConnection())
                     {
                         Conn.Open();
-                        query = "SELECT * FROM dbo.User";
+                        query = "SELECT * FROM dbo.Account";
                         command = new SqlCommand(query, Conn);
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
