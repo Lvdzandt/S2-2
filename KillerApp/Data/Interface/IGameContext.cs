@@ -11,5 +11,7 @@ namespace KillerApp.Data.Interface
         List<Game> GetAllGames();
 
         void AddGame(Game game);
+
+        Leaderbord GetLeaderbord(int id);
     }
 }

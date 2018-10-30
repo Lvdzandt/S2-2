@@ -21,7 +21,7 @@ namespace KillerApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Autherize(LoginViewModel model)
+        public IActionResult Autherize(LoginViewModel model)
         {
             foreach (User user in account.GetAllAccounts())
             {

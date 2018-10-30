@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using KillerApp.Handler;
 using KillerApp.Models;
+using KillerApp.Objects;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KillerApp.Controllers
@@ -21,12 +22,32 @@ namespace KillerApp.Controllers
             return View(model);
         }
 
-        public IActionResult Game()
+        public IActionResult Game(GameViewModel model)
         {
-            GameViewModel model = new GameViewModel();
             model.Game = _game.GetAllGames();
+            //model.Leaderbord = _game.GetLeaderbord(1);
             return View(model);
         }
 
+        
+        public IActionResult AddGame()
+        {
+            AddGameViewModel model = new AddGameViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult AddGame(AddGameViewModel newGame)
+        {
+            if (true)
+            {
+                _game.AddGame(newGame.Game);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

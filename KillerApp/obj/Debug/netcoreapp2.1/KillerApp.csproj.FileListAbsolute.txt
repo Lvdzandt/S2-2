@@ -65,4 +65,4 @@ C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.dl
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.pdb
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csproj.CopyComplete
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Login\Index.g.cshtml.cs
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csprojAssemblyReference.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddGame.g.cshtml.cs

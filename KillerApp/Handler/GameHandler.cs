@@ -28,5 +28,9 @@ namespace KillerApp.Handler
             gameRepository.AddGame(game);
         }
 
+        public Leaderbord GetLeaderbord(int id)
+        {
+            return gameRepository.GetLeaderbord(id);
+        }
     }
 }

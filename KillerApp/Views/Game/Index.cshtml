@@ -3,9 +3,19 @@
 @{
     ViewData["Title"] = "Game";
 }
+<form>
 
-<h2>Game</h2>
-
+</form>
+<div>
+    <div style="float:left">
+        <h2>Game</h2>
+    </div>
+    
+    <div id="new-game" style="float:right">
+        <br />
+            @Html.ActionLink("Add Game","AddGame")    
+    </div>
+</div>
 
 <div>
     <table class="table">
@@ -13,14 +23,16 @@
             <tr>
                 <th>Game ID</th>
                 <th>Game Name</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Game)
             {
                 <tr>
-                    <td><a href="Game/Game/@item.ID">@Html.DisplayFor(modelItem => item.ID)</a></td>
-                    <td >@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(Model => item.ID)</td>
+                    <td><a href="Game/Game/@item.ID">@Html.DisplayFor(Model => item.Name)</a></td>
+                    <td>@Html.DisplayFor(Model => item.Description)</td>
                 </tr>
             }
         </tbody>

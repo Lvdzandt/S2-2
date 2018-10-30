@@ -21,5 +21,10 @@ namespace KillerApp.Data.Repository
         {
             return gameContext.GetAllGames();
         }
+
+        public Leaderbord GetLeaderbord(int id)
+        {
+            return gameContext.GetLeaderbord(id);
+        }
     }
 }

@@ -1,13 +1,13 @@
-﻿using KillerApp.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KillerApp.Objects;
 
 namespace KillerApp.Models
 {
-    public class GameViewModel
+    public class AddGameViewModel
     {
-        public List<Game> Game { get; set; }
+        public Game Game { get; set; }
     }
 }

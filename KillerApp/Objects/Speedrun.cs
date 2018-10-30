@@ -7,6 +7,7 @@ namespace KillerApp.Objects
 {
     public class Speedrun
     {
+        public int ID { get; set; }
         public string Category { get; set; }
         public string Player { get; set; }
         public DateTime Date { get; set; }
