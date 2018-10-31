@@ -76,7 +76,7 @@ namespace KillerApp.Data.Context
                 throw;
             }
         }
-
+        //TODO: fix query
         public Leaderbord GetLeaderbord(int id)
         {
             Leaderbord output = new Leaderbord();

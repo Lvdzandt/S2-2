@@ -13,15 +13,17 @@ namespace KillerApp.Controllers
     {
         //private object loginviewmodel;
         private AccountRepository account = new AccountRepository();
+        public const string SessionKeyName = "_Name";
+        public const string SessionKeyId = "UserID";
 
-        public IActionResult Index()
+        public IActionResult Login()
         {
             LoginViewModel model = new LoginViewModel();
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Autherize(LoginViewModel model)
+        public IActionResult Login(LoginViewModel model)
         {
             foreach (User user in account.GetAllAccounts())
             {
