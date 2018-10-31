@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KillerApp.Data.Repository;
+using KillerApp.Logic;
 using KillerApp.Models;
 using KillerApp.Objects;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KillerApp.Controllers
@@ -12,7 +14,7 @@ namespace KillerApp.Controllers
     public class LoginController : Controller
     {
         //private object loginviewmodel;
-        private AccountRepository account = new AccountRepository();
+        private AccountLogic account = new AccountLogic();
         public const string SessionKeyName = "_Name";
         public const string SessionKeyId = "UserID";
 
@@ -25,14 +27,13 @@ namespace KillerApp.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            foreach (User user in account.GetAllAccounts())
+            if (account.CheckLogin(model.user.Username,model.user.Password))
             {
-                if (user.Username == model.user.Username && user.Password == model.user.Password)
-                {
-                    
-                    return RedirectToAction(nameof(HomeController.Contact), "Home");
-                }
+                User CurrentUser = account.GetAccount(model.user.Username);
+                //HttpContext.Session.SetInt32(SessionKeyId, CurrentUser.ID);
+                return RedirectToAction("Index", "Home");
             }
+
             return View();
         }
     }

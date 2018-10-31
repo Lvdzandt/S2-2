@@ -17,5 +17,15 @@ namespace KillerApp.Objects
         [Required(ErrorMessage = "This field is required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public User()
+        {
+
+        }
+        public User(int _id, string _username)
+        {
+            ID = _id;
+            Username = _username;
+        }
     }
 }

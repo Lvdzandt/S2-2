@@ -11,9 +11,14 @@ namespace KillerApp.Data.Repository
     public class AccountRepository
     {
         IAccountContext accountContext = new AccountSQLContext();
-        public List<User> GetAllAccounts()
+        public User GetAccount(string username)
         {
-            return accountContext.GetAllAccounts();
+            return accountContext.GetAccount(username);
+        }
+
+        public bool CheckLogin(string username, string password)
+        {
+            return accountContext.CheckLogin(username, password);
         }
     }
 }
