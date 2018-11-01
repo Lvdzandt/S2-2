@@ -5452,7 +5452,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
+      "sha512": "sa/cztXesLyTgCiYuef0RK2EAImnak0w2wrjCh/YBTvbn4iV2eTy0q3F8CyUkGiaYEyxUKGVTko6+7SMRBL4Gg==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "files": [
@@ -12219,23 +12219,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Luc\\.nuget\\packages\\": {},
+    "C:\\Users\\lucvd\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luc\\Desktop\\git\\Speedrun\\KillerApp\\KillerApp.csproj",
+      "projectUniqueName": "C:\\Users\\lucvd\\Desktop\\ICT\\Semester 2\\Indivueel\\Program\\Speedrun\\KillerApp\\KillerApp.csproj",
       "projectName": "KillerApp",
-      "projectPath": "C:\\Users\\Luc\\Desktop\\git\\Speedrun\\KillerApp\\KillerApp.csproj",
-      "packagesPath": "C:\\Users\\Luc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luc\\Desktop\\git\\Speedrun\\KillerApp\\obj\\",
+      "projectPath": "C:\\Users\\lucvd\\Desktop\\ICT\\Semester 2\\Indivueel\\Program\\Speedrun\\KillerApp\\KillerApp.csproj",
+      "packagesPath": "C:\\Users\\lucvd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucvd\\Desktop\\ICT\\Semester 2\\Indivueel\\Program\\Speedrun\\KillerApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Luc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lucvd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

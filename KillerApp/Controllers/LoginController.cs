@@ -30,10 +30,15 @@ namespace KillerApp.Controllers
             if (account.CheckLogin(model.user.Username,model.user.Password))
             {
                 User CurrentUser = account.GetAccount(model.user.Username);
-                //HttpContext.Session.SetInt32(SessionKeyId, CurrentUser.ID);
+                HttpContext.Session.SetInt32(SessionKeyId, CurrentUser.ID);
                 return RedirectToAction("Index", "Home");
             }
 
+            return View();
+        }
+
+        public IActionResult Register()
+        {
             return View();
         }
     }

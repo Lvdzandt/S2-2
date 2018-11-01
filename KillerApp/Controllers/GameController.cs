@@ -16,6 +16,7 @@ namespace KillerApp.Controllers
         
         public IActionResult Index()
         {
+            HttpContext.Session.Clear();
             //LoginViewModel model = new LoginViewModel();
             GameViewModel model = new GameViewModel();
             model.Game = _game.GetAllGames();

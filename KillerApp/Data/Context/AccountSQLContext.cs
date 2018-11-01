@@ -39,7 +39,7 @@ namespace KillerApp.Data.Context
                                     int UserID = Convert.ToInt32(reader["ID"]);
                                     string Name = Convert.ToString(reader["UserName"]);
                                     string Password = Convert.ToString(reader["Password"]);
-                                CurrUser = new User(UserID, Name);
+                                    CurrUser = new User(UserID, Name);
                                 }
                             }
                         Conn.Close();
