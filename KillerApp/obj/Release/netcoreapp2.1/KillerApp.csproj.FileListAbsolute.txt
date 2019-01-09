@@ -1,0 +1,6 @@
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.csprojAssemblyReference.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.csproj.CoreCompileInputs.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.RazorAssemblyInfo.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.RazorAssemblyInfo.cs
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.AssemblyInfoInputs.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Release\netcoreapp2.1\KillerApp.AssemblyInfo.cs

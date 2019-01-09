@@ -31,21 +31,30 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Game" asp-action="Index">Game</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
                 </ul>
-                @if (true)
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
-                        <li><a asp-area="" asp-controller="Login" asp-action="Register">Register</a></li>
-                    </ul>
+                @{
+                    var sessionName = new Byte[20];
+                    bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
                 }
-                @if (true)
+                @if (!nameOK)
                 {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a asp-area="" asp-controller="Login" asp-action="Account">Profile</a></li>
-                    </ul>
+                    
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
+                    <li><a asp-area="" asp-controller="Login" asp-action="Register">Register</a></li>
+
+
+                </ul>
+                }
+                @if (nameOK)
+                {
+                    string result = System.Text.Encoding.UTF8.GetString(sessionName);
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-area=""><text>Welcome </text> @result</a></li>
+                    <li><a asp-area="" asp-controller="Login" asp-action="Profile">profile</a></li>
+                    <li><a asp-area="" asp-controller="Login" asp-action="LogOut">Log Out</a></li>
+                </ul>
                 }
 
             </div>

@@ -11,9 +11,10 @@
 <div>
     <h3>Search by ID</h3>
     <input type="text" id="prodId" size="5" />
-    <input type="button" value="Search" onclick="find('@Url.Action("GetProduct")');" />
+    <input type="button" value="Search" onclick="find('@Url.Action("GetUser")');" />
     <h4 id="searchedProduct" class="modal-dialog"></h4>
 </div>
+
 
 <table class="table">
     <thead>
@@ -23,7 +24,16 @@
         </tr>
     </thead>
     <tbody>
-        @*@foreach (var item in Model.Game) TODO: fix db ophalen statement
+        <tr>
+            <td><a href="#">Tony</a></td>
+            <td>1:20</td>
+        </tr>
+        <tr>
+            <td><a href="#">Harry</a></td>
+            <td>1:25</td>
+        </tr>
+    
+    @*@foreach (var item in Model.Game) TODO: fix db ophalen statement
         {
                 @foreach (var speedrun in item.Leaderbord.Speedruns)
                 {

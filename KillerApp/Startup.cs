@@ -31,11 +31,14 @@ namespace KillerApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddDistributedMemoryCache();
-
+            // Add MVC services to the services container.
+            services.AddMvc();
+            services.AddMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            services.AddSession();
             services.AddSession(options =>
             {
                 // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromSeconds(9999999);
                 options.Cookie.HttpOnly = true;
             });
 

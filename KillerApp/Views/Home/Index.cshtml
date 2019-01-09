@@ -3,3 +3,19 @@
 }
 
 
+
+@{
+    var sessionName = new Byte[20];
+    bool nameOK = Context.Session.TryGetValue("name", out sessionName);
+    @if (!nameOK)
+    {
+        <text> Lorem ipsum dolor sit amet, consectetur adipiscing elit.Mauris vitae imperdiet ligula. Suspendisse potenti. Vivamus eget tellus facilisis, dignissim velit in, rhoncus augue. Nulla arcu nulla, condimentum nec rutrum ac, accumsan sed urna. Duis non purus porttitor, vestibulum ligula sed, feugiat diam.Maecenas pharetra semper justo at lobortis. Aliquam tristique dignissim eros non venenatis. Quisque iaculis viverra orci non feugiat. Phasellus lacinia lacinia luctus. Donec non mauris aliquet, aliquam turpis vitae, cursus leo.Suspendisse fermentum leo ut tellus pulvinar, sodales tincidunt elit pharetra.Praesent suscipit condimentum massa in ultrices.Maecenas accumsan convallis nisl in mollis </text>
+    }
+    @if (nameOK)
+    {
+        string result = System.Text.Encoding.UTF8.GetString(sessionName);
+        <p> @result</p>
+
+        }
+    }
+
