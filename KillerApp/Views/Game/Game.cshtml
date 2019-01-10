@@ -1,17 +1,17 @@
-﻿@model KillerApp.Models.GameViewModel
+﻿@model KillerApp.Models.GameViewModels.GameViewModel
 @using KillerApp.Objects
 @{
     ViewData["Title"] = "Game";
 }
 
-<h2>Game</h2> 
+<h2>@Model.game.Name</h2>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/SearchSpeedrun.js"></script>
 
 <div>
-    <h3>Search by ID</h3>
-    <input type="text" id="prodId" size="5" />
-    <input type="button" value="Search" onclick="find('@Url.Action("GetUser")');" />
+    <h3>Search table</h3>
+    <input type="text" id="prodId" size="10" />
     <h4 id="searchedProduct" class="modal-dialog"></h4>
 </div>
 
@@ -23,7 +23,7 @@
             <th>Time</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
         <tr>
             <td><a href="#">Tony</a></td>
             <td>1:20</td>
@@ -32,23 +32,26 @@
             <td><a href="#">Harry</a></td>
             <td>1:25</td>
         </tr>
-    
-    @*@foreach (var item in Model.Game) TODO: fix db ophalen statement
-        {
-                @foreach (var speedrun in item.Leaderbord.Speedruns)
-                {
-                    <tr>
-                        <td>
-                        @Html.DisplayFor(modelItem => speedrun.Player)
-                        </td>
-                        <td>
-                        @Html.DisplayFor(modelItem => speedrun.Hours)
-                        </td>
-                    </tr>
-                }
-        }*@
+
+
+
+        @*@foreach (var item in Model.Game) TODO: fix db ophalen statement
+            {
+                    @foreach (var speedrun in item.Leaderbord.Speedruns)
+                    {
+                        <tr>
+                            <td>
+                            @Html.DisplayFor(modelItem => speedrun.Player)
+                            </td>
+                            <td>
+                            @Html.DisplayFor(modelItem => speedrun.Hours)
+                            </td>
+                        </tr>
+                    }
+            }*@
     </tbody>
 </table>
+
 
 
 

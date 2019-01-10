@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KillerApp.Models
+namespace KillerApp.Models.GameViewModels
 {
     public class GameViewModel
     {
-        public List<Game> Game { get; set; }
-        public Leaderbord Leaderbord { get; set; }
+        public Game game {get;set;}
+        public Leaderbord leaderbord { get; set; }
     }
 }

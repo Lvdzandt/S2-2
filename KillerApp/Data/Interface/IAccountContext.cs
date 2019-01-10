@@ -8,7 +8,7 @@ namespace KillerApp.Data.Interface
 {
     public interface IAccountContext
     {
-        User GetAccount(string username);
-        bool CheckLogin(string username, string password);
+        User GetAccount(string email);
+        bool CheckLogin(string email, string password);
     }
 }

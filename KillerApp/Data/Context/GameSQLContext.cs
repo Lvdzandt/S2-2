@@ -13,6 +13,55 @@ namespace KillerApp.Data.Context
         private string query;
         private SqlCommand command;
 
+        public List<Speedrun> GetAllSpeedruns(int id)
+        {
+            List<Speedrun> output = new List<Speedrun>();
+
+            return output;
+        }
+
+        public Game GetGame(int id)
+        {
+            Game output = new Game();
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+                    query = "SELECT * FROM dbo.Game WHERE ID = @id";
+                    SqlParameter param1 = new SqlParameter();
+                    param1.ParameterName = "@id";
+                    param1.Value = id;
+
+                    command = new SqlCommand(query, Conn);
+                    command.Parameters.Add(param1);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int GameID = Convert.ToInt32(reader["ID"]);
+                                string Name = Convert.ToString(reader["Name"]);
+                                string Description = Convert.ToString(reader["Description"]);
+                                output.ID = GameID;
+                                output.Name = Name;
+                                output.Description = Description;
+                            }
+                        }
+                        Conn.Close();
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return output;
+        }
+
         public List<Game> GetAllGames()
         {
             List<Game> output = new List<Game>();
@@ -87,21 +136,23 @@ namespace KillerApp.Data.Context
                     Conn.Open();
                     query = "SELECT dbo.Leaderboard.ID " +
                         "FROM dbo.Leaderboard " +
-                        "INNER join dbo.LeaderBoardRuns on dbo.Leaderboard.ID = dbo.LeaderBoardRuns.LeaderboardID" +
-                        "WHERE dbo.LeaderBoardRuns.LeaderboardID = @id";
+                        "INNER JOIN dbo.Game on dbo.Leaderboard.GameID = dbo.Game.ID " +
+                        "WHERE dbo.Game.ID = @id";
                     SqlParameter param1 = new SqlParameter();
                     param1.ParameterName = "@id";
                     param1.Value = id;
                     command = new SqlCommand(query, Conn);
+                    command.Parameters.Add(param1);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
-                                int ID = Convert.ToInt32(reader["ID"]);
+                                int IDleader = Convert.ToInt32(reader["ID"]);
                                 //int GameID = Convert.ToInt32(reader["GameID"]);
-                                output.GameID = ID;
+                                output.ID = IDleader;
+                                output.GameID = id;
                             }
                         }
                         Conn.Close();

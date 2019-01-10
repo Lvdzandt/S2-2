@@ -11,14 +11,14 @@ namespace KillerApp.Logic
     {
         private AccountRepository accountrep = new AccountRepository();
 
-        public User GetAccount(string username)
+        public User GetAccount(string email)
         {
-            return accountrep.GetAccount(username);
+            return accountrep.GetAccount(email);
         }
 
-        public bool CheckLogin(string username, string password)
+        public bool CheckLogin(string email, string password)
         {
-            return accountrep.CheckLogin(username,password);
+            return accountrep.CheckLogin(email,password);
         }
     }
 }

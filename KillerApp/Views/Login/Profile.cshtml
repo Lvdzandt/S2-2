@@ -2,4 +2,19 @@
 @{
 }
 
-<p>@Model.user.Username</p>
+<div class="col-md-3 profile-box">
+    <div class="profile-box-content">
+        <img alt="/images/NoIMG.png" src="" class="img img-responsive profile-image">
+        <h2 class="no-margin-bottom">@Model.user.Username</h2>
+        <p><b>@Model.user.Username</b></p>
+        <hr />
+        <ul class="container details no-padding">
+            <li><p><span class="glyphicon glyphicon-map-marker one"></span>@Model.user.Country</p></li>
+            <li><p><span class="glyphicon glyphicon-calendar one"></span>@Model.user.date.ToShortDateString()</p></li>
+            <li><p><span class="glyphicon glyphicon-envelope one"></span>@Model.user.Email</p></li>
+        </ul>
+    </div>
+</div>
+<div>
+    
+</div>

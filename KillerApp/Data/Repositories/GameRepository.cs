@@ -26,5 +26,15 @@ namespace KillerApp.Data.Repository
         {
             return gameContext.GetLeaderbord(id);
         }
+
+        public List<Speedrun> GetAllSpeedruns(int id)
+        {
+            return gameContext.GetAllSpeedruns(id);
+        }
+
+        public Game GetGame(int id)
+        {
+            return gameContext.GetGame(id);
+        }
     }
 }

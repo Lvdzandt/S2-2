@@ -32,11 +32,11 @@ namespace KillerApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
-            if (account.CheckLogin(model.user.Username,model.user.Password))
+            if (account.CheckLogin(model.user.Email,model.user.Password))
             {
 
-                User CurrentUser = account.GetAccount(model.user.Username);
-                HttpContext.Session.SetString(SessionKeyName, CurrentUser.Username);
+                User CurrentUser = account.GetAccount(model.user.Email);
+                HttpContext.Session.SetString(SessionKeyName, CurrentUser.Email);
                 Console.WriteLine(HttpContext.Session.GetString(SessionKeyName));
                 Console.WriteLine(HttpContext.Session.GetInt32("UserID"));
                 currlogin.name = model.user.Username;

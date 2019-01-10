@@ -7,12 +7,13 @@
 @using (Html.BeginForm("AddGame", "Game", FormMethod.Post))
 {
 <div>
-<div>
-    @Html.LabelFor(Model => Model.Game.Name)
+    <h2>Add a Game</h2>
+<div class="">
+    @Html.LabelFor(Model => Model.Game.Name, htmlAttributes: new { @class = "control-label col-md-2", @style = "float: left;text-align: left;" })
     @Html.EditorFor(Model => Model.Game.Name)
 </div>
 <div>
-    @Html.LabelFor(Model => Model.Game.Description)
+    @Html.LabelFor(Model => Model.Game.Description, htmlAttributes: new { @class = "control-label col-md-2", @style = "float: left;text-align: left;" })
     @Html.EditorFor(Model => Model.Game.Description)
 </div>
     

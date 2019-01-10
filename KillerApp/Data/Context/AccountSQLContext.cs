@@ -14,7 +14,7 @@ namespace KillerApp.Data.Context
         private string query;
         private SqlCommand command;
 
-        public User GetAccount(string username)
+        public User GetAccount(string email)
         {
             User CurrUser = new User();
                 try
@@ -22,10 +22,10 @@ namespace KillerApp.Data.Context
                     using (SqlConnection Conn = ConnectionDB.GetConnection())
                     {
                         Conn.Open();
-                        query = "SELECT * FROM dbo.Account WHERE UserName = @username";
+                        query = "SELECT * FROM dbo.Account WHERE Email = @email";
                         SqlParameter param1 = new SqlParameter();
-                        param1.ParameterName = "@username";
-                        param1.Value = username;
+                        param1.ParameterName = "@email";
+                        param1.Value = email;
                     
                         command = new SqlCommand(query, Conn);
                         command.Parameters.Add(param1);
@@ -39,7 +39,10 @@ namespace KillerApp.Data.Context
                                     int UserID = Convert.ToInt32(reader["ID"]);
                                     string Name = Convert.ToString(reader["UserName"]);
                                     string Password = Convert.ToString(reader["Password"]);
-                                    CurrUser = new User(UserID, Name);
+                                    string Email = Convert.ToString(reader["Email"]);
+                                    string Country = Convert.ToString(reader["Country"]);
+                                    DateTime date = Convert.ToDateTime(reader["Birthdate"]);
+                                CurrUser = new User(UserID, Name,Email,Country,date);
                                 }
                             }
                         Conn.Close();
@@ -56,18 +59,18 @@ namespace KillerApp.Data.Context
             
         }
 
-        public bool CheckLogin(string username, string password)
+        public bool CheckLogin(string email, string password)
         {
             int ExcistingAccount;
             using (SqlConnection Conn = ConnectionDB.GetConnection())
             {
                 Conn.Open();
-                query = "Select count(*) FROM dbo.Account WHERE UserName = @username AND Password = @password";
+                query = "Select count(*) FROM dbo.Account WHERE Email = @email AND Password = @password";
                 using (SqlCommand cmd = new SqlCommand(query, Conn))
                 {
                     SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@username";
-                    param1.Value = username;
+                    param1.ParameterName = "@email";
+                    param1.Value = email;
 
                     SqlParameter param2 = new SqlParameter();
                     param2.ParameterName = "@password";
