@@ -24,31 +24,23 @@
         </tr>
     </thead>
     <tbody id="myTable">
-        <tr>
+
+        @foreach (var speedrun in Model.leaderbord.Speedruns)
+        {
+            <tr>
+                <td>@speedrun.Player</td>
+                <td>@speedrun.GetTime()</td>
+            </tr>
+        }
+        @*<tr>
             <td><a href="#">Tony</a></td>
             <td>1:20</td>
         </tr>
         <tr>
             <td><a href="#">Harry</a></td>
             <td>1:25</td>
-        </tr>
+        </tr>*@
 
-
-
-        @*@foreach (var item in Model.Game) TODO: fix db ophalen statement
-            {
-                    @foreach (var speedrun in item.Leaderbord.Speedruns)
-                    {
-                        <tr>
-                            <td>
-                            @Html.DisplayFor(modelItem => speedrun.Player)
-                            </td>
-                            <td>
-                            @Html.DisplayFor(modelItem => speedrun.Hours)
-                            </td>
-                        </tr>
-                    }
-            }*@
     </tbody>
 </table>
 

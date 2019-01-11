@@ -18,11 +18,18 @@
     <div style="float:left">
         <h2>Game</h2>
     </div>
+    @{
+        var sessionName = new Byte[20];
+        bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
+    }
+    @if (nameOK)
+    {
+        <div id="new-game" style="float:right">
+            <br />
+            @Html.ActionLink("Add Game", "AddGame")
+        </div>
+    }
 
-    <div id="new-game" style="float:right">
-        <br />
-        @Html.ActionLink("Add Game", "AddGame")
-    </div>
 </div>
 
 <div class="container-fluid">

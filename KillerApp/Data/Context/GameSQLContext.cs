@@ -2,6 +2,7 @@
 using KillerApp.Objects;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,44 @@ namespace KillerApp.Data.Context
         public List<Speedrun> GetAllSpeedruns(int id)
         {
             List<Speedrun> output = new List<Speedrun>();
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+
+                    command = new SqlCommand("GetAllSpeedruns", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@ID",SqlDbType.Int).Value = id;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int _ID = Convert.ToInt32(reader["ID"]);
+                                string _name = Convert.ToString(reader["Name"]);
+                                int _playerid = Convert.ToInt32(reader["PlayerID"]);
+                                DateTime _date = Convert.ToDateTime(reader["Date"]);
+                                int _hours = Convert.ToInt32(reader["Hours"]);
+                                int _minutes = Convert.ToInt32(reader["Minutes"]);
+                                int _seconds = Convert.ToInt32(reader["Seconds"]);
+                                output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes, Secondes = _seconds });
+                            }
+                        }
+
+                        Conn.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
 
             return output;
         }
@@ -28,13 +67,11 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-                    query = "SELECT * FROM dbo.Game WHERE ID = @id";
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@id";
-                    param1.Value = id;
 
-                    command = new SqlCommand(query, Conn);
-                    command.Parameters.Add(param1);
+                    command = new SqlCommand("GetGame", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@id",SqlDbType.Int).Value = id;
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
@@ -70,8 +107,8 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-                    query = "SELECT * FROM dbo.Game";
-                    command = new SqlCommand(query, Conn);
+                    command = new SqlCommand("GetAllGames", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)
@@ -104,18 +141,10 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-                    query = "INSERT INTO dbo.Game (Name,Description) VALUES(@name,@description)";
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@name";
-                    param1.Value = game.Name;
 
-                    SqlParameter param2 = new SqlParameter();
-                    param2.ParameterName = "@description";
-                    param2.Value = game.Description;
-
-                    command = new SqlCommand(query, Conn);
-                    command.Parameters.Add(param1);
-                    command.Parameters.Add(param2);
+                    command = new SqlCommand("AddGame", Conn);
+                    command.Parameters.Add("@name",SqlDbType.NVarChar).Value = game.Name;
+                    command.Parameters.Add("@description",SqlDbType.NVarChar).Value = game.Description;
                     command.ExecuteNonQuery();
                 }
             }
@@ -125,7 +154,8 @@ namespace KillerApp.Data.Context
                 throw;
             }
         }
-        //TODO: fix query
+
+
         public Leaderbord GetLeaderbord(int id)
         {
             Leaderbord output = new Leaderbord();
@@ -134,15 +164,9 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-                    query = "SELECT dbo.Leaderboard.ID " +
-                        "FROM dbo.Leaderboard " +
-                        "INNER JOIN dbo.Game on dbo.Leaderboard.GameID = dbo.Game.ID " +
-                        "WHERE dbo.Game.ID = @id";
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@id";
-                    param1.Value = id;
-                    command = new SqlCommand(query, Conn);
-                    command.Parameters.Add(param1);
+                    command = new SqlCommand("GetLeaderboard", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@id",SqlDbType.Int).Value = id;
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.HasRows)

@@ -6,6 +6,7 @@ using KillerApp.Handler;
 using KillerApp.Models;
 using KillerApp.Models.GameViewModels;
 using KillerApp.Objects;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KillerApp.Controllers
@@ -35,7 +36,7 @@ namespace KillerApp.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult AddGame()
         {
             AddGameViewModel model = new AddGameViewModel();
