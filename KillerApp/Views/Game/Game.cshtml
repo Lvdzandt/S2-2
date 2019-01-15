@@ -15,6 +15,19 @@
     <h4 id="searchedProduct" class="modal-dialog"></h4>
 </div>
 
+<div>
+    @{
+        var sessionName = new Byte[20];
+        bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
+    }
+    @if (nameOK)
+        {
+    <div id="new-run" style="float:right">
+        <br />
+        @Html.ActionLink("Add Run", "AddRun", "Game", routeValues: new { id = Model.leaderbord.ID })
+    </div>
+    }
+</div>
 
 <table class="table">
     <thead>

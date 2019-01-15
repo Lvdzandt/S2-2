@@ -17,5 +17,8 @@ namespace KillerApp.Data.Interface
         List<Speedrun> GetAllSpeedruns(int id);
 
         Game GetGame(int id);
+        void AddRun(Speedrun speedrun);
+        void AddLeaderBoardRun(int id, int id2);
+        int GetRunID(string name);
     }
 }

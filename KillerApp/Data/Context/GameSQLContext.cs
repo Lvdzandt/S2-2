@@ -11,7 +11,6 @@ namespace KillerApp.Data.Context
 {
     public class GameSQLContext : IGameContext
     {
-        private string query;
         private SqlCommand command;
 
         public List<Speedrun> GetAllSpeedruns(int id)
@@ -22,7 +21,7 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-
+                    command.Parameters.Clear();
                     command = new SqlCommand("GetAllSpeedruns", Conn);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@ID",SqlDbType.Int).Value = id;
@@ -38,8 +37,8 @@ namespace KillerApp.Data.Context
                                 DateTime _date = Convert.ToDateTime(reader["Date"]);
                                 int _hours = Convert.ToInt32(reader["Hours"]);
                                 int _minutes = Convert.ToInt32(reader["Minutes"]);
-                                int _seconds = Convert.ToInt32(reader["Seconds"]);
-                                output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes, Secondes = _seconds });
+                                //int _seconds = Convert.ToInt32(reader["Seconds"]);
+                                output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes});
                             }
                         }
 
@@ -59,6 +58,42 @@ namespace KillerApp.Data.Context
             return output;
         }
 
+        public int GetRunID(string name)
+        {
+            int output = 0;
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+                    
+                    command = new SqlCommand("GetRunID", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@param1", SqlDbType.VarChar).Value = name;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int runID = Convert.ToInt32(reader["ID"]);
+                                output = runID;
+                            }
+                        }
+                        Conn.Close();
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return output;
+        }
+
         public Game GetGame(int id)
         {
             Game output = new Game();
@@ -67,7 +102,7 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-
+                    
                     command = new SqlCommand("GetGame", Conn);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@id",SqlDbType.Int).Value = id;
@@ -107,6 +142,7 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
+                    
                     command = new SqlCommand("GetAllGames", Conn);
                     command.CommandType = CommandType.StoredProcedure;
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -141,8 +177,8 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-
                     command = new SqlCommand("AddGame", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@name",SqlDbType.NVarChar).Value = game.Name;
                     command.Parameters.Add("@description",SqlDbType.NVarChar).Value = game.Description;
                     command.ExecuteNonQuery();
@@ -155,6 +191,51 @@ namespace KillerApp.Data.Context
             }
         }
 
+        public void AddRun(Speedrun run)
+        {
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+                    
+                    SqlCommand comand = new SqlCommand("AddRun", Conn);
+                    comand.CommandType = CommandType.StoredProcedure;
+                    comand.Parameters.Add("@name", SqlDbType.VarChar).Value = run.Player;
+                    comand.Parameters.Add("@playerid", SqlDbType.Int).Value = run.PlayerID;
+                    comand.Parameters.Add("@date", SqlDbType.Date).Value = run.Date;
+                    comand.Parameters.Add("@hours", SqlDbType.Int).Value = run.Hours;
+                    comand.Parameters.Add("@minutes", SqlDbType.Int).Value = run.Minutes;
+                    comand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void AddLeaderBoardRun(int id, int id2)
+        {
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+                    command = new SqlCommand("AddLBR", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@lbid", SqlDbType.Int).Value = id;
+                    command.Parameters.Add("@runid", SqlDbType.Int).Value = id2;
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public Leaderbord GetLeaderbord(int id)
         {

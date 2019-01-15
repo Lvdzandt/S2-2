@@ -12,10 +12,12 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Session;
 using System.Web;
 using KillerApp.Models.AccountViewModels;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace KillerApp.Controllers
 {
-    public class LoginController : Controller
+    public class AccountController : Controller
     {
         //private object loginviewmodel;
         private AccountLogic account = new AccountLogic();
@@ -34,7 +36,8 @@ namespace KillerApp.Controllers
         {
             if (account.CheckLogin(model.user.Email,model.user.Password))
             {
-
+                
+                model.user.Password.GetHashCode();
                 User CurrentUser = account.GetAccount(model.user.Email);
                 HttpContext.Session.SetString(SessionKeyName, CurrentUser.Email);
                 Console.WriteLine(HttpContext.Session.GetString(SessionKeyName));

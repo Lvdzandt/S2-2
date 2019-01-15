@@ -41,8 +41,8 @@
                 {
                     
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="Login" asp-action="Login">Login</a></li>
-                    <li><a asp-area="" asp-controller="Login" asp-action="Register">Register</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
 
 
                 </ul>
@@ -52,8 +52,8 @@
                     string result = System.Text.Encoding.UTF8.GetString(sessionName);
                 <ul class="nav navbar-nav navbar-right">
                     <li><a asp-area=""><text>Welcome </text> @result</a></li>
-                    <li><a asp-area="" asp-controller="Login" asp-action="Profile">profile</a></li>
-                    <li><a asp-area="" asp-controller="Login" asp-action="LogOut">Log Out</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="Profile">profile</a></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="LogOut">Log Out</a></li>
                 </ul>
                 }
 

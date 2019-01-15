@@ -1,0 +1,42 @@
+﻿@model KillerApp.Models.AccountViewModels.ProfileViewModel
+@{
+}
+
+<div class="col-md-3 profile-box">
+    <div class="profile-box-content">
+        <img alt="/images/NoIMG.png" src="~/images/NoIMG.png" class="img img-responsive profile-image">
+        <h2 class="no-margin-bottom">@Model.user.Username</h2>
+        <p><b>@Model.user.Username</b></p>
+        <hr />
+        <ul class="container details no-padding">
+            <li><p><span class="glyphicon glyphicon-map-marker one"></span>@Model.user.Country</p></li>
+            <li><p><span class="glyphicon glyphicon-calendar one"></span>@Model.user.date.ToShortDateString()</p></li>
+            <li><p><span class="glyphicon glyphicon-envelope one"></span>@Model.user.Email</p></li>
+        </ul>
+    </div>
+    
+</div>
+<div class="container" > 
+    <text style="line-height:3">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </text>
+    </div>
+<div class="profile-box-content">
+    <table class="table table-striped table-bordered nowrap">
+        <thead>
+            <tr>
+                <td>Game</td>
+                <td>Time</td>
+                <td>Placement</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+                <td>#Game</td>
+                <td>#time</td>
+                <td>#Placement</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -14,6 +14,10 @@ namespace KillerApp.Handler
         {
 
         }
+        public int GetRunID(string name)
+        {
+            return gameRepository.GetRunID(name);
+        }
 
         public List<Game> GetAllGames()
         {
@@ -23,9 +27,20 @@ namespace KillerApp.Handler
             return Gamelist;
         }
 
+        public void AddRun(Speedrun speedrun)
+        {
+            gameRepository.AddRun(speedrun);
+        }
+
+
         public void AddGame(Game game)
         {
             gameRepository.AddGame(game);
+        }
+
+        public void AddLeaderBoardRun(int lbid, int runid)
+        {
+            gameRepository.AddLeaderBoardRun(lbid, runid);
         }
 
         public Leaderbord GetLeaderbord(int id)

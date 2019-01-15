@@ -1,0 +1,52 @@
+﻿@model KillerApp.Models.GameViewModels.AddRunViewModel
+
+@{
+    ViewData["Title"] = "AddRun";
+}
+
+<h2>AddRun</h2>
+
+<h4>AddRunViewModel</h4>
+<hr />
+
+@{ 
+    int a = Model.LeaderboardID;
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddRun">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden="hidden">
+                <label asp-for="LeaderboardID" class="control-label"></label>
+                <input asp-for="LeaderboardID" class="form-control" value="@a"/>
+                <span asp-validation-for="LeaderboardID" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="speedRun.Player" class="control-label"></label>
+                <input asp-for="speedRun.Player" class="form-control" />
+                <span asp-validation-for="speedRun.Player" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="speedRun.Date" class="control-label"></label>
+                <input type="date" asp-for="speedRun.Date" class="form-control" />
+                <span asp-validation-for="speedRun.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="time" class="control-label"></label>
+                <input type="time" asp-for="time" class="form-control" />
+                <span asp-validation-for="time" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

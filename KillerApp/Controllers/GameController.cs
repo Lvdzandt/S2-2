@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KillerApp.Handler;
+using KillerApp.Logic;
 using KillerApp.Models;
 using KillerApp.Models.GameViewModels;
 using KillerApp.Objects;
@@ -14,6 +15,7 @@ namespace KillerApp.Controllers
     public class GameController : Controller
     {
         GameHandler _game = new GameHandler();
+        AccountLogic account = new AccountLogic();
 
         
         public IActionResult Index()
@@ -36,7 +38,36 @@ namespace KillerApp.Controllers
         }
 
 
-        [Authorize]
+        //trigger op db zodra run word toegevoegd
+        public IActionResult AddRun(int id)
+        {
+            AddRunViewModel model = new AddRunViewModel();
+            model.LeaderboardID = id;
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult AddRun(AddRunViewModel output)
+        {
+            int id = 0;
+            var sessionName = new Byte[20];
+            bool nameOK = HttpContext.Session.TryGetValue("_Name", out sessionName);
+            string result = System.Text.Encoding.UTF8.GetString(sessionName);
+            User curruser = account.GetAccount(result);
+            output.speedRun.Hours = Convert.ToInt32(output.time.Substring(0, 2));
+            output.speedRun.Minutes = Convert.ToInt32(output.time.Substring(3));
+            output.speedRun.PlayerID = curruser.ID;
+            _game.AddRun(output.speedRun);
+            while (id == 0)
+            {
+                id = _game.GetRunID(output.speedRun.Player);
+            }
+            _game.AddLeaderBoardRun(output.LeaderboardID, id);
+            //output.speedRun.PlayerID = 
+            return RedirectToAction("Index");
+        }
+
+
         public IActionResult AddGame()
         {
             AddGameViewModel model = new AddGameViewModel();
@@ -56,5 +87,6 @@ namespace KillerApp.Controllers
                 return View();
             }
         }
+
     }
 }

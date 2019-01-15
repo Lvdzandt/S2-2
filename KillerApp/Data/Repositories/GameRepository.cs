@@ -17,6 +17,14 @@ namespace KillerApp.Data.Repository
             gameContext.AddGame(game);
         }
 
+        public int GetRunID(string name)
+        {
+            return gameContext.GetRunID(name);
+        }
+        public void AddLeaderBoardRun(int lbid, int runid)
+        {
+            gameContext.AddLeaderBoardRun(lbid, runid);
+        }
         public List<Game> GetAllGames()
         {
             return gameContext.GetAllGames();
@@ -35,6 +43,11 @@ namespace KillerApp.Data.Repository
         public Game GetGame(int id)
         {
             return gameContext.GetGame(id);
+        }
+
+        public void AddRun(Speedrun speedrun)
+        {
+            gameContext.AddRun(speedrun);
         }
     }
 }
