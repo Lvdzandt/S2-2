@@ -1,11 +1,16 @@
 ﻿jQuery(function () {
-    $("#hide").click(function () {
-        $("#tablerow").toggle();
+    $("a.toggler").click(function (e) {
+        var prodCat = ($(this).attr("data-prod-cat"));
+        $(".cat" + prodCat).toggle();
     });
 });
 
-jQuery(function () {
-    $("#MoreInf").click(function () {
-        $("#test").toggle();
+jQuery(document).ready(function () {
+    $("#prodId").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) 
+        });
+        
     });
 });

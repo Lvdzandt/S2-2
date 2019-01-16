@@ -1,0 +1,22 @@
+﻿
+#ProfileInfo {
+    margin-top: 30px;
+    margin-left:-33px;
+}
+
+#Container {
+    margin-top: 30px;
+    margin-left:250px;
+    margin-bottom:30px;
+    max-width:1000px;
+}
+
+#Description {
+    line-height: 3;
+    
+}
+
+#TableHeader {
+    background-color: silver;
+    float:right;
+}

@@ -24,6 +24,11 @@ namespace KillerApp.Controllers
             //LoginViewModel model = new LoginViewModel();
             AllGameViewModel model = new AllGameViewModel();
             model.Game = _game.GetAllGames();
+            foreach (var item in model.Game)
+            {
+                item.Leaderbord = _game.GetLeaderbord(item.ID);
+                item.Leaderbord.Speedruns = _game.GetAllSpeedruns(item.Leaderbord.ID);
+            }
             return View(model);
         }
 

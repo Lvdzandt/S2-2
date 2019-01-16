@@ -15,24 +15,33 @@
 
 <form></form>
 <div>
-    <div style="float:left">
+    <div>
         <h2>Game</h2>
-    </div>
-    @{
-        var sessionName = new Byte[20];
-        bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
-    }
-    @if (nameOK)
-    {
-        <div id="new-game" style="float:right">
-            <br />
-            @Html.ActionLink("Add Game", "AddGame")
-        </div>
-    }
 
+        @{
+            var sessionName = new Byte[20];
+            bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
+        }
+        @if (nameOK)
+        {
+            //TODO: FIX addgame label same row H2   
+            <div id="new-game" style="float:right;">
+                <br />
+                @Html.ActionLink("Add Game", "AddGame")
+            </div>
+        }
+        <hr />
+    </div>
+</div>
+
+<div>
+    <h3>Search table</h3>
+    <input class="form-control" type="text" id="prodId" style="width:300px" />
+    <h4 id="searchedProduct" class="modal-dialog"></h4>
 </div>
 
 <div class="container-fluid">
+
     <table id="example" class="table table-striped table-bordered nowrap">
         <thead>
             <tr>
@@ -42,23 +51,28 @@
                 <th>Description</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
             @foreach (var item in Model.Game)
             {
+                string tablerowclass = "cat" + item.ID;
                 <tr id="tablerow">
-                    <td id="MoreInf">*</td>
-                    <td>@Html.DisplayFor(Model => item.ID)</td>
-                    <td><a href="/Game/Game/@item.ID")>@Html.DisplayFor(Model => item.Name)</a></td>
-                    <td>@Html.DisplayFor(Model => item.Description)</td>
+                    <td id="MoreInf"><a href="#" class="toggler" data-prod-cat="@item.ID">*</a></td>
+                    <td class="search">@Html.DisplayFor(Model => item.ID)</td>
+                    <td class="search"><a href="/Game/Game/@item.ID")>@Html.DisplayFor(Model => item.Name)</a></td>
+                    <td class="search">@Html.DisplayFor(Model => item.Description)</td>
                 </tr>
-                <tr id="test" hidden="hidden">
-                    <td>@Model.Game.Count</td>
+
+
+                <tr id="test" style="display:none" class="@tablerowclass">
+                    <td></td>
+                    <td>Speedruns:  @item.Leaderbord.Speedruns.Count</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
-<button id="hide">Hide</button>
 
 
 
