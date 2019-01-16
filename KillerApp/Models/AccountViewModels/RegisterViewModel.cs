@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using KillerApp.Objects;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@ namespace KillerApp.Models
 {
     public class RegisterViewModel
     {
-        
+        public User user { get; set; }
+
     }
 }

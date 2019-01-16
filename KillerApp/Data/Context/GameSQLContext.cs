@@ -13,6 +13,50 @@ namespace KillerApp.Data.Context
     {
         private SqlCommand command;
 
+        public List<Speedrun> GetUserSpeedruns(int id)
+        {
+            List<Speedrun> output = new List<Speedrun>();
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
+                    command = new SqlCommand("GetUserSpeedruns", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int _ID = Convert.ToInt32(reader["ID"]);
+                                string _name = Convert.ToString(reader["Name"]);
+                                int _playerid = Convert.ToInt32(reader["PlayerID"]);
+                                DateTime _date = Convert.ToDateTime(reader["Date"]);
+                                int _hours = Convert.ToInt32(reader["Hours"]);
+                                int _minutes = Convert.ToInt32(reader["Minutes"]);
+                                //int _seconds = Convert.ToInt32(reader["Seconds"]);
+                                output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes });
+                            }
+                        }
+
+                        Conn.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+
+            return output;
+        }
+
         public List<Speedrun> GetAllSpeedruns(int id)
         {
             List<Speedrun> output = new List<Speedrun>();
@@ -21,7 +65,6 @@ namespace KillerApp.Data.Context
                 using (SqlConnection Conn = ConnectionDB.GetConnection())
                 {
                     Conn.Open();
-                    command.Parameters.Clear();
                     command = new SqlCommand("GetAllSpeedruns", Conn);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@ID",SqlDbType.Int).Value = id;

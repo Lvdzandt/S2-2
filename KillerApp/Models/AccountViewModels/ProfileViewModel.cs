@@ -9,5 +9,6 @@ namespace KillerApp.Models.AccountViewModels
     public class ProfileViewModel
     {
         public User user { get; set; }
+        public List<Speedrun> Speedruns { get; set; }
     }
 }

@@ -34,13 +34,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="">
-                <td>#Game</td>
-                <td>#time</td>
-                <td>#Placement</td>
-                <td ><a href="#">edit</a> - <a href="#">delete</a></td>
-            </tr>
-        </tbody>
+
+            @foreach (var item in Model.Speedruns)
+                {
+                <tr class="">
+                    <td>#Game</td>
+                    <td>@item.GetTime()</td>
+                    <td>#Placement</td>
+                    <td><a href="#">edit</a> - <a href="#">delete</a></td>
+                </tr>
+              }
+               
+            </tbody>
     </table>
 </div>
 

@@ -17,6 +17,11 @@ namespace KillerApp.Data.Repository
             gameContext.AddGame(game);
         }
 
+        public List<Speedrun> GetUserSpeedruns(int id)
+        {
+            return gameContext.GetUserSpeedruns(id);
+        }
+
         public int GetRunID(string name)
         {
             return gameContext.GetRunID(name);

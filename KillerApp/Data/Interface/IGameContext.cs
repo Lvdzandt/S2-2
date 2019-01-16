@@ -11,7 +11,7 @@ namespace KillerApp.Data.Interface
         List<Game> GetAllGames();
 
         void AddGame(Game game);
-
+        List<Speedrun> GetUserSpeedruns(int id);
         Leaderbord GetLeaderbord(int id);
 
         List<Speedrun> GetAllSpeedruns(int id);

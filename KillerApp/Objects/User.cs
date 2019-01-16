@@ -11,6 +11,7 @@ namespace KillerApp.Objects
     public class User
     {
         public int ID { get; set; }
+        [DisplayName("Username :  ")]
         public string Username { get; set; }
         [DisplayName("Password :  ")]
         [Required(ErrorMessage = "This field is required")]
@@ -19,7 +20,9 @@ namespace KillerApp.Objects
         [DisplayName("Email :  ")]
         [Required(ErrorMessage = "This field is required")]
         public string Email { get; set; }
+        [DisplayName("Country :  ")]
         public string Country { get; set; }
+        [DisplayName("BirthDate :  ")]
         public DateTime date { get; set; }
 
         public User()

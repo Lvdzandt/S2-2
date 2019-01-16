@@ -14,6 +14,7 @@ using System.Web;
 using KillerApp.Models.AccountViewModels;
 using System.Security.Cryptography;
 using System.Text;
+using KillerApp.Handler;
 
 namespace KillerApp.Controllers
 {
@@ -21,6 +22,7 @@ namespace KillerApp.Controllers
     {
         //private object loginviewmodel;
         private AccountLogic account = new AccountLogic();
+        GameHandler _game = new GameHandler();
         public const string SessionKeyName = "_Name";
         public const string SessionKeyId = "UserID";
 
@@ -55,6 +57,15 @@ namespace KillerApp.Controllers
             return View(model);
         }
 
+
+        //TODO: Account aanmaken
+        [HttpPost]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            
+            return RedirectToAction("Index","Home");
+        }
+
         public IActionResult Profile()
         {
             var sessionName = new Byte[20];
@@ -62,6 +73,7 @@ namespace KillerApp.Controllers
             string result = System.Text.Encoding.UTF8.GetString(sessionName);
             ProfileViewModel model = new ProfileViewModel();
             model.user = account.GetAccount(result);
+            model.Speedruns = _game.GetUserSpeedruns(model.user.ID);
             return View(model);
         }
 

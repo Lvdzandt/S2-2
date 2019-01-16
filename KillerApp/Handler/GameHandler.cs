@@ -32,6 +32,10 @@ namespace KillerApp.Handler
             gameRepository.AddRun(speedrun);
         }
 
+        public List<Speedrun> GetUserSpeedruns(int id)
+        {
+            return gameRepository.GetUserSpeedruns(id);
+        }
 
         public void AddGame(Game game)
         {
