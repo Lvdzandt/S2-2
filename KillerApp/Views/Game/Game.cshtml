@@ -4,15 +4,65 @@
     ViewData["Title"] = "Game";
 }
 
-<h2>@Model.game.Name</h2>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="~/js/SearchSpeedrun.js"></script>
+<link href="~/css/Game.css" rel="stylesheet" />
+
+
+<div id="GameInfo" class="col-md-3 profile-box">
+    <div class="profile-box-content">
+        <h2 class="">@Model.game.Name</h2>
+        <img alt="/images/NoIMG.png" src="~/images/NoIMG.png" class="img img-responsive profile-image">
+        <ul id="GameInfo" class="container details no-padding">
+            <li><p><span class="glyphicon glyphicon-calendar"></span> #ReleaseYear</p></li>
+            <li><p><span class="glyphicon glyphicon-modal-window"></span> #Console</p></li>
+        </ul>
+        <hr />
+        <ul id="GameInfo" class="container details no-padding">
+            <li><p><span class="glyphicon glyphicon-calendar"></span> #Runs</p></li>
+            <li><p><span class="glyphicon glyphicon-modal-window"></span> #Help</p></li>
+            <li><p><span class="glyphicon glyphicon-modal-window"></span> #Help</p></li>
+        </ul>
+    </div>
+
+</div>
 
 <div>
     <h3>Search table</h3>
-    <input class="form-control" type="text" id="prodId" style="width:300px"/>
+    <input class="form-control" type="text" id="prodId" style="width:300px" />
     <h4 id="searchedProduct" class="modal-dialog"></h4>
+    <div>
+
+    </div>
+    <ul class="nav nav-tabs" style="border-bottom:10px;margin-bottom:-400px;">
+        <li class="active" ><a href="#">#Category</a></li>
+        <li class="active"><a href="#">#Category</a></li>
+    </ul>
+    <table class="table"border="1">
+        <thead>
+            <tr>
+                <th id="placement">Placement</th>
+                <th>Player</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @{
+                int i = 1;
+            }
+            @foreach (var speedrun in Model.leaderbord.Speedruns)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@speedrun.Player</td>
+                    <td>@speedrun.GetTime()</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
 </div>
 
 <div>
@@ -21,41 +71,15 @@
         bool nameOK = Context.Session.TryGetValue("_Name", out sessionName);
     }
     @if (nameOK)
-        {
-    <div id="new-run" style="float:right">
-        <br />
-        @Html.ActionLink("Add Run", "AddRun", "Game", routeValues: new { id = Model.leaderbord.ID })
-    </div>
+    {
+        <div id="new-run">
+            <br />
+            @Html.ActionLink("Add Run", "AddRun", "Game", routeValues: new { id = Model.leaderbord.ID })
+        </div>
     }
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Player</th>
-            <th>Time</th>
-        </tr>
-    </thead>
-    <tbody id="myTable">
 
-        @foreach (var speedrun in Model.leaderbord.Speedruns)
-        {
-            <tr>
-                <td>@speedrun.Player</td>
-                <td>@speedrun.GetTime()</td>
-            </tr>
-        }
-        @*<tr>
-            <td><a href="#">Tony</a></td>
-            <td>1:20</td>
-        </tr>
-        <tr>
-            <td><a href="#">Harry</a></td>
-            <td>1:25</td>
-        </tr>*@
-
-    </tbody>
-</table>
 
 
 

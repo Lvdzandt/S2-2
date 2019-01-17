@@ -16,6 +16,11 @@ namespace KillerApp.Data.Repository
             return accountContext.GetAccount(email);
         }
 
+        public void RegisterAccount(User newacc)
+        {
+            accountContext.RegisterAccount(newacc);
+        }
+
         public bool CheckLogin(string email, string password)
         {
             return accountContext.CheckLogin(email, password);

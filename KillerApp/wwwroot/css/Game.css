@@ -1,0 +1,22 @@
+﻿#GameInfo {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.table {
+    width: 800px;
+    border:ridge;
+}
+
+#placement {
+    width: 20px
+}
+
+#new-run{
+    float:right;
+}
+
+
+.nav-tabs > li > a:hover {
+    background-color: darkgray !important;
+}

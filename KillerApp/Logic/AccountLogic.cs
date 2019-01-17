@@ -16,6 +16,11 @@ namespace KillerApp.Logic
             return accountrep.GetAccount(email);
         }
 
+        public void RegisterAccount(User newacc)
+        {
+            accountrep.RegisterAccount(newacc);
+        }
+
         public bool CheckLogin(string email, string password)
         {
             return accountrep.CheckLogin(email,password);

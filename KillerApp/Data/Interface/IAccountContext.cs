@@ -10,5 +10,6 @@ namespace KillerApp.Data.Interface
     {
         User GetAccount(string email);
         bool CheckLogin(string email, string password);
+        void RegisterAccount(User newacc);
     }
 }

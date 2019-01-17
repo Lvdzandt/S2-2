@@ -14,6 +14,11 @@ namespace KillerApp.Data.Context
         private string query;
         private SqlCommand command;
 
+        public void RegisterAccount(User newacc)
+        {
+
+        }
+
         public User GetAccount(string email)
         {
             User CurrUser = new User();
@@ -22,13 +27,11 @@ namespace KillerApp.Data.Context
                     using (SqlConnection Conn = ConnectionDB.GetConnection())
                     {
                         Conn.Open();
-                        query = "SELECT * FROM dbo.Account WHERE Email = @email";
-                        SqlParameter param1 = new SqlParameter();
-                        param1.ParameterName = "@email";
-                        param1.Value = email;
+
                     
-                        command = new SqlCommand(query, Conn);
-                        command.Parameters.Add(param1);
+                        command = new SqlCommand("GetAccount", Conn);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@email",SqlDbType.NVarChar).Value = email;
                         command.ExecuteNonQuery();
                     using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -59,27 +62,21 @@ namespace KillerApp.Data.Context
             
         }
 
+        //TODO Fix Login StoredProcedure
         public bool CheckLogin(string email, string password)
         {
             int ExcistingAccount;
             using (SqlConnection Conn = ConnectionDB.GetConnection())
             {
                 Conn.Open();
-                query = "Select count(*) FROM dbo.Account WHERE Email = @email AND Password = @password";
-                using (SqlCommand cmd = new SqlCommand(query, Conn))
-                {
-                    SqlParameter param1 = new SqlParameter();
-                    param1.ParameterName = "@email";
-                    param1.Value = email;
 
-                    SqlParameter param2 = new SqlParameter();
-                    param2.ParameterName = "@password";
-                    param2.Value = password;
+                command = new SqlCommand("CheckLogin", Conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
+                command.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+                    
+                    ExcistingAccount = (int)command.ExecuteScalar();
 
-                    cmd.Parameters.Add(param1);
-                    cmd.Parameters.Add(param2);
-                    ExcistingAccount = Convert.ToInt32(cmd.ExecuteScalar());
-                }
                 Conn.Close();
             }
             if (ExcistingAccount == 1)
