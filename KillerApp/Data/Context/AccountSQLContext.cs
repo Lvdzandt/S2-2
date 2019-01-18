@@ -31,7 +31,7 @@ namespace KillerApp.Data.Context
                     
                         command = new SqlCommand("GetAccount", Conn);
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@email",SqlDbType.NVarChar).Value = email;
+                        command.Parameters.Add("@param1",SqlDbType.NVarChar).Value = email;
                         command.ExecuteNonQuery();
                     using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -72,10 +72,11 @@ namespace KillerApp.Data.Context
 
                 command = new SqlCommand("CheckLogin", Conn);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-                command.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
-                    
-                    ExcistingAccount = (int)command.ExecuteScalar();
+                command.Parameters.Add("@param2", SqlDbType.VarChar).Value = email;
+                command.Parameters.Add("@param1", SqlDbType.NVarChar).Value = password;
+
+                ExcistingAccount = (int)command.ExecuteScalar();
+                
 
                 Conn.Close();
             }

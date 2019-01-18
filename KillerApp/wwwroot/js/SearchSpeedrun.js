@@ -6,3 +6,11 @@
         });
     });
 });
+
+jQuery(document).ready(function () {
+    $("#Category").click(function (e) {
+        $("#myTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf("l") > -1)
+        });
+    });
+});
