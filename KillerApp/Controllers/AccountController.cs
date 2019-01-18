@@ -62,8 +62,8 @@ namespace KillerApp.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
-            
-            return RedirectToAction("Index","Home");
+            account.RegisterAccount(model.user);
+            return RedirectToAction("Login","Account");
         }
 
         public IActionResult Profile()

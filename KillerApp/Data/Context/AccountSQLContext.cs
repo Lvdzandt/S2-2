@@ -16,7 +16,32 @@ namespace KillerApp.Data.Context
 
         public void RegisterAccount(User newacc)
         {
+            try
+            {
+                using (SqlConnection Conn = ConnectionDB.GetConnection())
+                {
+                    Conn.Open();
 
+
+                    command = new SqlCommand("RegisterAccount", Conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@username", SqlDbType.NVarChar).Value = newacc.Username;
+                    command.Parameters.Add("@password", SqlDbType.NVarChar).Value = newacc.Password;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = newacc.Email;
+                    command.Parameters.Add("@birthdate", SqlDbType.Date).Value = newacc.date;
+                    command.Parameters.Add("@country", SqlDbType.NVarChar).Value = newacc.Country;
+                    command.ExecuteNonQuery();
+                    
+                        
+                        Conn.Close();
+                    
+
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public User GetAccount(string email)

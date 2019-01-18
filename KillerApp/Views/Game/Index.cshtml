@@ -42,7 +42,7 @@
 
 <div class="container-fluid">
 
-    <table id="example" class="table table-striped table-bordered nowrap">
+    <table id="mainTable" class="table table-striped table-bordered nowrap">
         <thead>
             <tr>
                 <th></th>
@@ -55,14 +55,14 @@
             @foreach (var item in Model.Game)
             {
                 string tablerowclass = "cat" + item.ID;
-                <tr id="tablerow">
+                <tr id="tablerow" class="private">
                     <td id="MoreInf"><a href="#" class="toggler" data-prod-cat="@item.ID">*</a></td>
                     <td class="search">@Html.DisplayFor(Model => item.ID)</td>
                     <td class="search"><a href="/Game/Game/@item.ID")>@Html.DisplayFor(Model => item.Name)</a></td>
                     <td class="search">@Html.DisplayFor(Model => item.Description)</td>
                 </tr>
 
-
+                
                 <tr id="test" style="display:none" class="@tablerowclass">
                     <td></td>
                     <td>Speedruns:  @item.Leaderbord.Speedruns.Count</td>

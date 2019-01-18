@@ -36,16 +36,25 @@
         <tbody>
 
             @foreach (var item in Model.Speedruns)
-                {
+            {
                 <tr class="">
                     <td>#Game</td>
                     <td>@item.GetTime()</td>
                     <td>#Placement</td>
                     <td><a href="#">edit</a> - <a href="#">delete</a></td>
                 </tr>
-              }
-               
-            </tbody>
+            }
+            @if (Model.Speedruns.Count == 0)
+            {
+                <tr class="">
+                    <td>No Runs Submitted</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            }
+
+        </tbody>
     </table>
 </div>
 
