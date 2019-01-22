@@ -36,6 +36,7 @@ namespace KillerApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
+            
             if (account.CheckLogin(model.user.Email,model.user.Password))
             {
                 
@@ -58,12 +59,15 @@ namespace KillerApp.Controllers
         }
 
 
-        //TODO: Account aanmaken
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
-            account.RegisterAccount(model.user);
-            return RedirectToAction("Login","Account");
+            if (ModelState.IsValid)
+            {
+                account.RegisterAccount(model.user);
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
         }
 
         public IActionResult Profile()
