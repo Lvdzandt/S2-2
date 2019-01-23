@@ -23,6 +23,7 @@ namespace KillerApp.Objects
         public string VideoLink { get; set; }
         public string Description { get; set; }
 
+
         public string GetTime()
         {
             string time = Hours + "h " + Minutes + "m "; //+ Secondes + "s";

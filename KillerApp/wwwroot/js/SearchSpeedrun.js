@@ -14,3 +14,11 @@ jQuery(document).ready(function () {
         });
     });
 });
+
+function Test(e) {
+    $("#myTable").filter(function () {
+        //$(this).toggle($(this).text().toLowerCase().indexOf(e) > -1)
+        $("#" + e).hide()
+        debugger;
+    });
+};
