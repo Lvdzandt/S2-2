@@ -7,18 +7,9 @@
     });
 });
 
-jQuery(document).ready(function () {
-    $("#Category").click(function (e) {
-        $("#myTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf("l") > -1)
-        });
-    });
-});
-
 function Test(e) {
-    $("#myTable").filter(function () {
-        //$(this).toggle($(this).text().toLowerCase().indexOf(e) > -1)
-        $("#" + e).hide()
-        debugger;
+    $("#myTable tr").filter(function () {
+    $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1)
+    //$("#myTable tr" + e).toggle();
     });
 };

@@ -55,7 +55,7 @@
             @foreach (var item in Model.Game)
             {
                 string tablerowclass = "cat" + item.ID;
-                <tr id="tablerow" class="private">
+                <tr id="tablerow" class="private"> 
                     <td id="MoreInf"><a href="#" class="toggler" data-prod-cat="@item.ID">*</a></td>
                     <td class="search">@Html.DisplayFor(Model => item.ID)</td>
                     <td class="search"><a href="/Game/Game/@item.ID")>@Html.DisplayFor(Model => item.Name)</a></td>
