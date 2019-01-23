@@ -16,8 +16,8 @@
         <h2 class="">@Model.game.Name</h2>
         <img alt="/images/NoIMG.png" src="~/images/NoIMG.png" class="img img-responsive profile-image">
         <ul id="GameInfo" class="container details no-padding">
-            <li><p><span class="glyphicon glyphicon-calendar"></span> #ReleaseYear</p></li>
-            <li><p><span class="glyphicon glyphicon-modal-window"></span> #Console</p></li>
+            <li><p><span class="glyphicon glyphicon-calendar"></span> @Model.game.ReleaseDate.ToShortDateString()</p></li>
+            <li><p><span class="glyphicon glyphicon-modal-window"></span> @Model.game.Console</p></li>
         </ul>
         <hr />
         <ul id="GameInfo" class="container details no-padding">

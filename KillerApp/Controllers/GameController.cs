@@ -82,7 +82,7 @@ namespace KillerApp.Controllers
         [HttpPost]
         public IActionResult AddGame(AddGameViewModel newGame)
         {
-            if (newGame.Game.Name != null)
+            if (ModelState.IsValid)
             {
                 _game.AddGame(newGame.Game);
                 return RedirectToAction("Index");

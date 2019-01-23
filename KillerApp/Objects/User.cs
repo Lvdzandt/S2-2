@@ -12,17 +12,20 @@ namespace KillerApp.Objects
     {
         public int ID { get; set; }
         [DisplayName("Username :  ")]
+        [Required(ErrorMessage = "Required a UserName")]
         public string Username { get; set; }
         [DisplayName("Password :  ")]
-        [Required(ErrorMessage = "This field is required")]
+        [Required(ErrorMessage = "Required a Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [DisplayName("Email :  ")]
-        [Required(ErrorMessage = "This field is required")]
-        public string Email { get; set; }
+        [EmailAddress(ErrorMessage = "Required an email")]
+        public string Email { get; set; }      
         [DisplayName("Country :  ")]
+        [Required(ErrorMessage = "Required a Country name")]
         public string Country { get; set; }
         [DisplayName("BirthDate :  ")]
+        [Required(ErrorMessage = "Required a Birthdate")]
         public DateTime date { get; set; }
 
         public User()

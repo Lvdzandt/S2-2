@@ -161,9 +161,14 @@ namespace KillerApp.Data.Context
                                 int GameID = Convert.ToInt32(reader["ID"]);
                                 string Name = Convert.ToString(reader["Name"]);
                                 string Description = Convert.ToString(reader["Description"]);
+                                DateTime Release = Convert.ToDateTime(reader["ReleaseYear"]);
+                                string console = Convert.ToString(reader["Console"]);
+
                                 output.ID = GameID;
                                 output.Name = Name;
                                 output.Description = Description;
+                                output.ReleaseDate = Release;
+                                output.Console = console;
                             }
                         }
                         Conn.Close();
@@ -199,7 +204,9 @@ namespace KillerApp.Data.Context
                                 int GameID = Convert.ToInt32(reader["ID"]);
                                 string Name = Convert.ToString(reader["Name"]);
                                 string Description = Convert.ToString(reader["Description"]);
-                                output.Add(new Game() { ID = GameID, Description = Description, Name = Name });
+                                DateTime Release = Convert.ToDateTime(reader["ReleaseYear"]);
+                                string console = Convert.ToString(reader["Console"]);
+                                output.Add(new Game() { ID = GameID, Description = Description, Name = Name,ReleaseDate = Release,Console= console });
                             }
                         }
                         Conn.Close();
@@ -226,6 +233,8 @@ namespace KillerApp.Data.Context
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@name",SqlDbType.NVarChar).Value = game.Name;
                     command.Parameters.Add("@description",SqlDbType.NVarChar).Value = game.Description;
+                    command.Parameters.Add("@release", SqlDbType.VarChar).Value = game.ReleaseDate;
+                    command.Parameters.Add("@console", SqlDbType.VarChar).Value = game.Console;
                     command.ExecuteNonQuery();
                 }
             }
