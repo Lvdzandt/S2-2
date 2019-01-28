@@ -7,6 +7,12 @@
     });
 });
 
+jQuery(document).ready(function () {
+    $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf("any") > -1)
+    });
+});
+
 function Test(e) {
     $("#myTable tr").filter(function () {
     $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1)
