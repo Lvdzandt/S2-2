@@ -1,0 +1,48 @@
+﻿@model KillerApp.Models.ForumViewModels.ForumViewModel;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Forum</h2>
+<div id="new-game" style="float:right;">
+<br />
+@Html.ActionLink("New Post", "NewPost")
+            </div>
+<div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <td colspan="100"><h5 style="text-align:center">Main</h5></td>
+            </tr>
+            <tr>
+                <td width="900px">Title</td>
+                <td>Comments</td>
+                <td>Made by</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="/forum">How does....?</a></td>
+                <td>12</td>
+                <td>Luc</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <td colspan="100"><h5 style="text-align:center">Games</h5></td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>Comments</td>
+                <td>Made by</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>

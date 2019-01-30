@@ -1,0 +1,40 @@
+﻿@model KillerApp.Models.ForumViewModels.ForumPostViewModel;
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>New ForumPost</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="post.Title" class="control-label"></label>
+                <input asp-for="post.Title" class="form-control" />
+                <span asp-validation-for="post.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="post.Decription" class="control-label"></label>
+                <textarea asp-for="post.Decription" style="width:1000px; height:150px;" class="form-control"></textarea>
+                <span asp-validation-for="post.Decription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="post.Categorie" class="control-label"></label>
+                <input asp-for="post.Categorie" class="form-control" />
+                <span asp-validation-for="post.Categorie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

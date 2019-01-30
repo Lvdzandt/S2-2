@@ -11,7 +11,6 @@ namespace KillerApp.Data.Context
 {
     public class AccountSQLContext : IAccountContext
     {
-        private string query;
         private SqlCommand command;
 
         public void RegisterAccount(User newacc)
