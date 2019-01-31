@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Objects.Enumeration;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace KillerApp.Objects
     public class Speedrun
     {
         public int ID { get; set; }
-        public string Category { get; set; }
+        [EnumDataType(typeof(GameCategory.Categorie))]
+        public GameCategory.Categorie Category { get; set; }
         [Required]
         public string Player { get; set; }
         public int PlayerID { get; set; }

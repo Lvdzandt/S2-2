@@ -66,6 +66,10 @@ C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddGame.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Profile.g.cshtml.cs
 C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csprojAssemblyReference.cache
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Profile.g.cshtml.cs
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddRun.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.deps.json
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.runtimeconfig.json
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\bin\Debug\netcoreapp2.1\KillerApp.runtimeconfig.dev.json
@@ -84,6 +88,8 @@ C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\D
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Profile.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Forum\Index.g.cshtml.cs
+C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Forum\NewPost.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddGame.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddRun.g.cshtml.cs
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\Game.g.cshtml.cs
@@ -103,10 +109,3 @@ C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\D
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.dll
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.pdb
 C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csproj.CopyComplete
-C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\KillerApp.csprojAssemblyReference.cache
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Profile.g.cshtml.cs
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
-C:\Users\Luc\Desktop\git\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Game\AddRun.g.cshtml.cs
-C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Forum\Index.g.cshtml.cs
-C:\Users\lucvd\Desktop\ICT\Semester 2\Indivueel\Program\Speedrun\KillerApp\obj\Debug\netcoreapp2.1\Razor\Views\Forum\NewPost.g.cshtml.cs

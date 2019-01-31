@@ -1,5 +1,6 @@
 ﻿using KillerApp.Data.Interface;
 using KillerApp.Objects;
+using Objects.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,7 +37,7 @@ namespace KillerApp.Data.Context
                                 DateTime _date = Convert.ToDateTime(reader["Date"]);
                                 int _hours = Convert.ToInt32(reader["Hours"]);
                                 int _minutes = Convert.ToInt32(reader["Minutes"]);
-                                string _category = Convert.ToString(reader["Category"]);
+                                GameCategory.Categorie _category = (GameCategory.Categorie)Enum.ToObject(typeof(GameCategory.Categorie), reader.GetInt32(7));
                                 //int _seconds = Convert.ToInt32(reader["Seconds"]);
                                 output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes, Category = _category });
                             }
@@ -81,7 +82,8 @@ namespace KillerApp.Data.Context
                                 DateTime _date = Convert.ToDateTime(reader["Date"]);
                                 int _hours = Convert.ToInt32(reader["Hours"]);
                                 int _minutes = Convert.ToInt32(reader["Minutes"]);
-                                string _category = Convert.ToString(reader["Category"]);
+                                int test = reader.GetInt32(7);
+                                GameCategory.Categorie _category = (GameCategory.Categorie)Enum.ToObject(typeof(GameCategory.Categorie), reader.GetInt32(7));
                                 //int _seconds = Convert.ToInt32(reader["Seconds"]);
                                 output.Add(new Speedrun() { ID = _ID, Player = _name, Date = _date, Hours = _hours, Minutes = _minutes, Category = _category});
                             }
